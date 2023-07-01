@@ -126,7 +126,9 @@ const UserDashboardSection = () => {
       >
         <Typography
           color={"white"}
-          fontSize={windowWidth < 786 ? "3.5vh" : "5.5vh"}
+          fontSize={
+            windowWidth < 520 ? "5vw" : windowWidth < 786 ? "3.5vh" : "5.5vh"
+          }
           fontFamily={"Comme, sans-serif"}
           fontWeight={800}
         >
@@ -134,7 +136,9 @@ const UserDashboardSection = () => {
         </Typography>
         <Typography
           color={"white"}
-          fontSize={windowWidth < 786 ? "3.5vh" : "5.5vh"}
+          fontSize={
+            windowWidth < 520 ? "5.5vw" : windowWidth < 786 ? "3.5vh" : "5.5vh"
+          }
           fontFamily={"Comme, sans-serif"}
           fontWeight={800}
         >

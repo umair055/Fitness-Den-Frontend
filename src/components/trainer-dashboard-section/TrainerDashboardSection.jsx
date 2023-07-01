@@ -33,7 +33,27 @@ const TrainerDashboardSection = () => {
     setAllWorkoutPlanUpdateRequestsFromDB,
   ] = useState([]);
   const [temp, setTemp] = useState(0);
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowHeight(window.innerHeight);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   const FetchAllPlanRequests = () => {
     axios
       .get("workout/all-new-workout-requests")
@@ -154,144 +174,148 @@ const TrainerDashboardSection = () => {
           <LogoutIcon /> LogOut
         </Typography>
       </Box>
-      <Typography
-        fontSize={"5vw"}
-        color={"white"}
-        fontWeight={800}
-        textAlign={"center"}
-        mb={4}
-      >
-        Trainer Dashboard
-      </Typography>
-      <Box
-        sx={{
-          minHeight: "60vh",
-          minWidth: "100vh",
-          backgroundColor: "rgba(255, 255, 255, 0.1)",
-          backdropFilter: "blur(10px)",
-          boxShadow: "10px 10px 10px rgba(0, 0, 0, 0.1)",
-          borderRadius: 3,
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          flexDirection: "column",
-          gap: 1,
-          zIndex: 10,
-        }}
-      >
+      <Box sx={{ display: "flex", flexDirection: "row" }}>
         <Box>
-          <NavLink to={"/all-workout-plan-req"}>
-            <Typography
-              color={"white"}
-              fontSize={"5vh"}
-              fontFamily={"Comme, sans-serif"}
-              borderBottom={"0.5px solid white"}
-              display={"flex"}
-              alignItems={"center"}
-              gap={2}
-            >
-              All WorkoutPlans Requests
-              {isNewWorkoutPlanRequests && (
-                <Box sx={{ px: 1, background: "white", borderRadius: 5 }}>
-                  <Typography
-                    color={"black"}
-                    fontSize={"1rem"}
-                    fontFamily={"Comme, sans-serif"}
-                    fontWeight={800}
-                  >
-                    New
-                  </Typography>
-                </Box>
-              )}
-            </Typography>
-          </NavLink>
+          <Typography
+            fontSize={"5vw"}
+            color={"white"}
+            fontWeight={800}
+            textAlign={"center"}
+            mb={4}
+          >
+            Trainer Dashboard
+          </Typography>
         </Box>
-        <Box>
-          <NavLink to={"/all-diet-plan-req"}>
-            <Typography
-              color={"white"}
-              fontSize={"5vh"}
-              fontFamily={"Comme, sans-serif"}
-              borderBottom={"0.5px solid white"}
-              display={"flex"}
-              alignItems={"center"}
-              gap={2}
-            >
-              All DietPlans Requests
-              {isNewDietPlanRequests && (
-                <Box
-                  sx={{
-                    px: 1,
-                    background: "white",
-                    borderRadius: 5,
-                  }}
-                >
-                  <Typography
-                    color={"black"}
-                    fontSize={"1rem"}
-                    fontFamily={"Comme, sans-serif"}
-                    fontWeight={800}
+        <Box
+          sx={{
+            minHeight: "60vh",
+            minWidth: "90vw",
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+            backdropFilter: "blur(10px)",
+            boxShadow: "10px 10px 10px rgba(0, 0, 0, 0.1)",
+            borderRadius: 3,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+            gap: 1,
+            zIndex: 10,
+          }}
+        >
+          <Box>
+            <NavLink to={"/all-workout-plan-req"}>
+              <Typography
+                color={"white"}
+                fontSize={windowWidth < 786 ? "3.5vh" : "5vh"}
+                fontFamily={"Comme, sans-serif"}
+                borderBottom={"0.5px solid white"}
+                display={"flex"}
+                alignItems={"center"}
+                gap={2}
+              >
+                All WorkoutPlans Requests
+                {isNewWorkoutPlanRequests && (
+                  <Box sx={{ px: 1, background: "white", borderRadius: 5 }}>
+                    <Typography
+                      color={"black"}
+                      fontSize={"1rem"}
+                      fontFamily={"Comme, sans-serif"}
+                      fontWeight={800}
+                    >
+                      New
+                    </Typography>
+                  </Box>
+                )}
+              </Typography>
+            </NavLink>
+          </Box>
+          <Box>
+            <NavLink to={"/all-diet-plan-req"}>
+              <Typography
+                color={"white"}
+                fontSize={windowWidth < 786 ? "3.5vh" : "5vh"}
+                fontFamily={"Comme, sans-serif"}
+                borderBottom={"0.5px solid white"}
+                display={"flex"}
+                alignItems={"center"}
+                gap={2}
+              >
+                All DietPlans Requests
+                {isNewDietPlanRequests && (
+                  <Box
+                    sx={{
+                      px: 1,
+                      background: "white",
+                      borderRadius: 5,
+                    }}
                   >
-                    New
-                  </Typography>
-                </Box>
-              )}
-            </Typography>
-          </NavLink>
-        </Box>
-        <Box>
-          <NavLink to={"/workout-plan-update-req"}>
-            <Typography
-              color={"white"}
-              fontSize={"5vh"}
-              fontFamily={"Comme, sans-serif"}
-              borderBottom={"0.5px solid white"}
-              display={"flex"}
-              alignItems={"center"}
-              gap={2}
-            >
-              WorkoutPlan Update Requests
-              {isNewWorkoutPlanUpdateRequests && (
-                <Box sx={{ px: 1, background: "white", borderRadius: 5 }}>
-                  <Typography
-                    color={"black"}
-                    fontSize={"1rem"}
-                    fontFamily={"Comme, sans-serif"}
-                    fontWeight={800}
-                  >
-                    New
-                  </Typography>
-                </Box>
-              )}
-            </Typography>
-          </NavLink>
-        </Box>
-        <Box>
-          <NavLink to={"/diet-plan-update-req"}>
-            <Typography
-              color={"white"}
-              fontSize={"5vh"}
-              fontFamily={"Comme, sans-serif"}
-              borderBottom={"0.5px solid white"}
-              display={"flex"}
-              alignItems={"center"}
-              gap={2}
-            >
-              DietPlan Update Requests
-              {isNewDietPlanUpdateRequests && (
-                <Box sx={{ px: 1, background: "white", borderRadius: 5 }}>
-                  <Typography
-                    color={"black"}
-                    fontSize={"1rem"}
-                    fontFamily={"Comme, sans-serif"}
-                    fontWeight={800}
-                  >
-                    New
-                  </Typography>
-                </Box>
-              )}
-            </Typography>
-          </NavLink>
+                    <Typography
+                      color={"black"}
+                      fontSize={"1rem"}
+                      fontFamily={"Comme, sans-serif"}
+                      fontWeight={800}
+                    >
+                      New
+                    </Typography>
+                  </Box>
+                )}
+              </Typography>
+            </NavLink>
+          </Box>
+          <Box>
+            <NavLink to={"/workout-plan-update-req"}>
+              <Typography
+                color={"white"}
+                fontSize={windowWidth < 786 ? "3.5vh" : "5vh"}
+                fontFamily={"Comme, sans-serif"}
+                borderBottom={"0.5px solid white"}
+                display={"flex"}
+                alignItems={"center"}
+                gap={2}
+              >
+                WorkoutPlan Update Requests
+                {isNewWorkoutPlanUpdateRequests && (
+                  <Box sx={{ px: 1, background: "white", borderRadius: 5 }}>
+                    <Typography
+                      color={"black"}
+                      fontSize={"1rem"}
+                      fontFamily={"Comme, sans-serif"}
+                      fontWeight={800}
+                    >
+                      New
+                    </Typography>
+                  </Box>
+                )}
+              </Typography>
+            </NavLink>
+          </Box>
+          <Box>
+            <NavLink to={"/diet-plan-update-req"}>
+              <Typography
+                color={"white"}
+                fontSize={windowWidth < 786 ? "3.5vh" : "5vh"}
+                fontFamily={"Comme, sans-serif"}
+                borderBottom={"0.5px solid white"}
+                display={"flex"}
+                alignItems={"center"}
+                gap={2}
+              >
+                DietPlan Update Requests
+                {isNewDietPlanUpdateRequests && (
+                  <Box sx={{ px: 1, background: "white", borderRadius: 5 }}>
+                    <Typography
+                      color={"black"}
+                      fontSize={"1rem"}
+                      fontFamily={"Comme, sans-serif"}
+                      fontWeight={800}
+                    >
+                      New
+                    </Typography>
+                  </Box>
+                )}
+              </Typography>
+            </NavLink>
+          </Box>
         </Box>
       </Box>
     </Container>

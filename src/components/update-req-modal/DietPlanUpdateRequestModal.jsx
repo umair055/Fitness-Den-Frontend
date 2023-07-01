@@ -58,8 +58,22 @@ const DietPlanUpdateRequestModal = ({ modalOpen, setModalOpen, Plan }) => {
       <Box
         sx={{
           background: "#29084d",
-          height: "25vw",
-          width: "30vw",
+          height:
+            windowWidth < 330
+              ? "75vw"
+              : windowWidth < 510
+              ? "60vw"
+              : windowWidth < 880
+              ? "35vw"
+              : "25vw",
+          width:
+            windowWidth < 330
+              ? "75vw"
+              : windowWidth < 510
+              ? "60vw"
+              : windowWidth < 880
+              ? "50vw"
+              : "30vw",
           position: "absolute",
           display: "flex",
           flexDirection: "column",

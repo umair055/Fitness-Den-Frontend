@@ -214,13 +214,7 @@ const PaidOrders = () => {
 
                   return (
                     <TableRow key={productIndex}>
-                      <TableCell
-                        sx={{
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
-                        }}
-                      >
+                      <TableCell sx={{ width: "fit-content" }}>
                         {mainImage && (
                           <img
                             src={mainImage}
@@ -269,6 +263,7 @@ const PaidOrders = () => {
                           width: windowWidth < 786 ? "2.5vh" : "4vh",
                           fontWeight: "bold",
                           fontFamily: "Comme, sans-serif",
+                          textAlign: "center",
                         }}
                       >
                         {status}
@@ -280,7 +275,7 @@ const PaidOrders = () => {
                               background: "rgba(255,255,255,0.1)",
                               border: "1px solid white",
                               color: "white",
-                              ml: 2,
+                              m: 1,
                             }}
                           >
                             Rate

@@ -31,6 +31,28 @@ const AllWorkoutPlanRequests = () => {
     dispatch(setIsNewWorkoutPlanRequests(false));
   }, []);
 
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowHeight(window.innerHeight);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <Container>
       <Box sx={{ position: "absolute", top: 0, left: 5 }}>
@@ -60,7 +82,7 @@ const AllWorkoutPlanRequests = () => {
               sx={{
                 color: "white",
                 fontWeight: "bold",
-                fontSize: "5vh",
+                fontSize: windowHeight < 786 ? "3.5vh" : "5vh",
                 fontFamily: "Comme, sans-serif",
               }}
             >
@@ -70,7 +92,7 @@ const AllWorkoutPlanRequests = () => {
               sx={{
                 color: "white",
                 fontWeight: "bold",
-                fontSize: "5vh",
+                fontSize: windowHeight < 786 ? "3.5vh" : "5vh",
                 fontFamily: "Comme, sans-serif",
               }}
             >
@@ -80,7 +102,7 @@ const AllWorkoutPlanRequests = () => {
               sx={{
                 color: "white",
                 fontWeight: "bold",
-                fontSize: "5vh",
+                fontSize: windowHeight < 786 ? "3.5vh" : "5vh",
                 fontFamily: "Comme, sans-serif",
               }}
             >
