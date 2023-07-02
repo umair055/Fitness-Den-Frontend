@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Box, Button, Container } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
 import NavBar from "./NavBar";
 
@@ -29,16 +29,16 @@ const Hero = ({ scrollToSection }) => {
   return (
     <>
       {windowWidth < 1100 && windowHeight > 1100 ? (
-        <Container
+        <Box
           sx={{
             position: "relative",
             backgroundImage:
-              "url(https://res.cloudinary.com/diwvqpuuf/image/upload/v1686423249/All_In_One-min_qmnhmv.svg)",
+              "url(https://res.cloudinary.com/diwvqpuuf/image/upload/v1688130266/HeroSectionMT_p7atp4.png)",
             backgroundPosition: "top center",
             backgroundRepeat: "no-repeat",
-            backgroundSize: "100% auto",
+            backgroundSize: "100% 100%",
             minWidth: "100%",
-            minHeight: `55vw`,
+            minHeight: `70vw`,
             mb: 0,
           }}
         >
@@ -47,8 +47,8 @@ const Hero = ({ scrollToSection }) => {
             sx={{
               textAlign: "center",
               position: "absolute",
-              bottom: "35px",
-              left: "45%",
+              bottom: "0px",
+              left: "40%",
             }}
           >
             <Button
@@ -59,24 +59,23 @@ const Hero = ({ scrollToSection }) => {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                fontSize: "1.5vw",
+                fontSize: "2vw",
               }}
             >
               Explore More
               <KeyboardDoubleArrowDownIcon sx={{ fontSize: "2vw" }} />
             </Button>
           </Box>
-        </Container>
+        </Box>
       ) : windowWidth < 1000 ? (
-        <Container
+        <Box
           sx={{
             position: "relative",
             backgroundImage:
-              "url(https://res.cloudinary.com/diwvqpuuf/image/upload/v1686423249/All_In_One-min_qmnhmv.svg)",
-            backgroundPosition: "top center",
+              "url(https://res.cloudinary.com/diwvqpuuf/image/upload/v1688130266/HeroSectionMT_p7atp4.png)",
             backgroundRepeat: "no-repeat",
-            backgroundSize: "100% 100%",
-            minWidth: "100%",
+            backgroundPosition: "center",
+            backgroundSize: "170% 100%",
             minHeight: `90vh`,
             mb: 0,
           }}
@@ -86,8 +85,13 @@ const Hero = ({ scrollToSection }) => {
             sx={{
               textAlign: "center",
               position: "absolute",
-              bottom: "35px",
-              left: "45%",
+              bottom: "0px",
+              left:
+                windowWidth < 600 && windowWidth > 400
+                  ? "35vw"
+                  : windowWidth < 400
+                  ? "30vw"
+                  : "40vw",
             }}
           >
             <Button
@@ -98,16 +102,16 @@ const Hero = ({ scrollToSection }) => {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                fontSize: "1.5vw",
+                fontSize: "1rem",
               }}
             >
               Explore More
-              <KeyboardDoubleArrowDownIcon sx={{ fontSize: "2vw" }} />
+              <KeyboardDoubleArrowDownIcon sx={{ fontSize: "1rem" }} />
             </Button>
           </Box>
-        </Container>
+        </Box>
       ) : (
-        <Container
+        <Box
           sx={{
             position: "relative",
             backgroundImage:
@@ -118,6 +122,7 @@ const Hero = ({ scrollToSection }) => {
             minWidth: "100%",
             minHeight: `55vw`,
             mb: 0,
+            pr: 1.25,
           }}
         >
           <NavBar />
@@ -144,7 +149,7 @@ const Hero = ({ scrollToSection }) => {
               <KeyboardDoubleArrowDownIcon sx={{ fontSize: "2vw" }} />
             </Button>
           </Box>
-        </Container>
+        </Box>
       )}
     </>
   );

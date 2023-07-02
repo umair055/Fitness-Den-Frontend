@@ -233,7 +233,7 @@ const ViewDietPlanPage = () => {
                           sx={{
                             color: "white",
                             fontWeight: "bold",
-                            fontSize: windowWidth < 786 ? "3.5vh" : "5vh",
+                            fontSize: windowWidth < 786 ? "4vh" : "5vh",
                             fontFamily: "Comme, sans-serif",
                           }}
                         >
@@ -243,7 +243,7 @@ const ViewDietPlanPage = () => {
                           sx={{
                             color: "white",
                             fontWeight: "bold",
-                            fontSize: windowWidth < 786 ? "3.5vh" : "5vh",
+                            fontSize: windowWidth < 786 ? "4vh" : "5vh",
                             fontFamily: "Comme, sans-serif",
                           }}
                         >
@@ -253,7 +253,7 @@ const ViewDietPlanPage = () => {
                           sx={{
                             color: "white",
                             fontWeight: "bold",
-                            fontSize: windowWidth < 786 ? "3.5vh" : "5vh",
+                            fontSize: windowWidth < 786 ? "4vh" : "5vh",
                             fontFamily: "Comme, sans-serif",
                           }}
                         >
@@ -268,7 +268,7 @@ const ViewDietPlanPage = () => {
                         <TableCell
                           sx={{
                             color: "white",
-                            fontSize: windowWidth < 786 ? "2.5vh" : "3.5vh",
+                            fontSize: windowWidth < 786 ? "3vh" : "3.5vh",
                             fontFamily: "Comme, sans-serif",
                           }}
                         >
@@ -277,7 +277,7 @@ const ViewDietPlanPage = () => {
                         <TableCell
                           sx={{
                             color: "white",
-                            fontSize: windowWidth < 786 ? "2.5vh" : "3.5vh",
+                            fontSize: windowWidth < 786 ? "3vh" : "3.5vh",
                             fontFamily: "Comme, sans-serif",
                           }}
                         >
@@ -286,7 +286,7 @@ const ViewDietPlanPage = () => {
                         <TableCell
                           sx={{
                             color: "white",
-                            fontSize: windowWidth < 786 ? "2.5vh" : "3.5vh",
+                            fontSize: windowWidth < 786 ? "3vh" : "3.5vh",
                             fontFamily: "Comme, sans-serif",
                           }}
                         >

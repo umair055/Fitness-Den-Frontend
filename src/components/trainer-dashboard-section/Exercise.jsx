@@ -1,32 +1,12 @@
 import { Box, Container, Typography } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
 
 const Exercise = () => {
   const Exercise = useSelector((state) => state.Excercise.SingleExcercise);
-  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowHeight(window.innerHeight);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
   return (
     <Container
       sx={{
@@ -67,7 +47,7 @@ const Exercise = () => {
             borderRadius: 3,
             display: "flex",
             justifyContent: "center",
-            alignItems: windowWidth < 768 ? "" : "center",
+            alignItems: "center",
             flexDirection: "column",
             gap: 1,
             zIndex: 10,
@@ -76,7 +56,7 @@ const Exercise = () => {
           }}
         >
           <Typography
-            fontSize={windowWidth < 768 ? "5vw" : "1.4rem"}
+            fontSize={"1.4rem"}
             color={"white"}
             fontWeight={800}
             fontFamily={"Comme, sans-serif"}
@@ -84,7 +64,7 @@ const Exercise = () => {
             Name: {i.Name}
           </Typography>
           <Typography
-            fontSize={windowWidth < 768 ? "5vw" : "1.4rem"}
+            fontSize={"1.4rem"}
             color={"white"}
             fontWeight={800}
             fontFamily={"Comme, sans-serif"}
@@ -92,7 +72,7 @@ const Exercise = () => {
             Number of Sets: {i.Sets}
           </Typography>
           <Typography
-            fontSize={windowWidth < 768 ? "5vw" : "1.4rem"}
+            fontSize={"1.4rem"}
             color={"white"}
             fontWeight={800}
             fontFamily={"Comme, sans-serif"}
@@ -101,7 +81,7 @@ const Exercise = () => {
           </Typography>
           <NavLink target="_blank" to={i.DemoLink}>
             <Typography
-              fontSize={windowWidth < 768 ? "5vw" : "1.4rem"}
+              fontSize={"1.4rem"}
               color={"white"}
               fontFamily={"Comme, sans-serif"}
             >

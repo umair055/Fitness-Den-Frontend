@@ -51,6 +51,8 @@ import EcomPaymentPage from "./pages/payment/EcomPaymentPage";
 import PaidOrder from "./components/user-dashboard-section/PaidOrders";
 import PaidProduct from "./components/admin-dashboard-section/PaidProductView";
 import LogOut from "./components/LogOut/LogOut";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const App = () => {
   const { isAdmin, isUser, isTrainer } = useSelector(
@@ -84,11 +86,11 @@ const App = () => {
         <Route path="/unauthorized" element={<NotFound />} />
         <Route path="/route-check" element={<ProtectedRoute />} />
         <Route
-          path="/reset-password/:accessTokenForgotPassword"
+          path="/fitness-den/reset-password/:accessTokenForgotPassword"
           element={<ResetPassword />}
         />
         <Route
-          path="/activation/:activationToken"
+          path="/fitness-den/activation/:activationToken"
           element={<ActivationPage />}
         />
         <Route

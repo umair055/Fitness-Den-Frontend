@@ -21,27 +21,6 @@ import {
 const AllDietPlanRequests = () => {
   const dispatch = useDispatch();
   const [DietPlanRequests, setDietPlanRequests] = useState([]);
-  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowHeight(window.innerHeight);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
   const FetchDietPlanRequests = () => {
     axios
       .get("diet/all-new-diet-requests")
@@ -59,11 +38,7 @@ const AllDietPlanRequests = () => {
           <Typography
             color={"white"}
             fontFamily={"Comme, sans-serif"}
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              fontSize: windowWidth < 480 ? "2.3vw" : "1.7vw",
-            }}
+            sx={{ display: "flex", alignItems: "center", fontSize: "1.7vw" }}
           >
             <KeyboardDoubleArrowLeftIcon /> Back
           </Typography>
@@ -85,7 +60,7 @@ const AllDietPlanRequests = () => {
               sx={{
                 color: "white",
                 fontWeight: "bold",
-                fontSize: windowWidth < 480 ? "4vw" : "5vh",
+                fontSize: "5vh",
                 fontFamily: "Comme, sans-serif",
               }}
             >
@@ -95,7 +70,7 @@ const AllDietPlanRequests = () => {
               sx={{
                 color: "white",
                 fontWeight: "bold",
-                fontSize: windowWidth < 480 ? "4vw" : "5vh",
+                fontSize: "5vh",
                 fontFamily: "Comme, sans-serif",
               }}
             >
@@ -105,7 +80,7 @@ const AllDietPlanRequests = () => {
               sx={{
                 color: "white",
                 fontWeight: "bold",
-                fontSize: windowWidth < 480 ? "4vw" : "5vh",
+                fontSize: "5vh",
                 fontFamily: "Comme, sans-serif",
               }}
             >
@@ -119,7 +94,7 @@ const AllDietPlanRequests = () => {
               <TableCell
                 sx={{
                   color: "white",
-                  fontSize: windowWidth < 480 ? "4vw" : "5vh",
+                  fontSize: "5vh",
                   fontFamily: "Comme, sans-serif",
                 }}
               >
@@ -128,7 +103,7 @@ const AllDietPlanRequests = () => {
               <TableCell
                 sx={{
                   color: "white",
-                  fontSize: windowWidth < 480 ? "4vw" : "5vh",
+                  fontSize: "5vh",
                   fontFamily: "Comme, sans-serif",
                 }}
               >

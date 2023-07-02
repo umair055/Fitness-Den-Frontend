@@ -1,5 +1,5 @@
 import axios from "axios";
-axios.defaults.baseURL = "https://busy-pear-wasp-wig.cyclic.app/fitness-den";
+axios.defaults.baseURL = "http://localhost:5000/fitness-den/";
 let refresh = false;
 
 axios.interceptors.response.use(
