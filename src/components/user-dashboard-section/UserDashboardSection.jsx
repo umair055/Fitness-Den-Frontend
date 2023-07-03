@@ -117,7 +117,7 @@ const UserDashboardSection = () => {
       <Box
         sx={{
           minHeight: "60vh",
-          minWidth: windowWidth < 870 ? "90vw" : "100vh",
+          minWidth: "90vw",
           backgroundColor: "rgba(255, 255, 255, 0.1)",
           backdropFilter: "blur(10px)",
           boxShadow: "10px 10px 10px rgba(0, 0, 0, 0.1)",
@@ -133,7 +133,11 @@ const UserDashboardSection = () => {
         <Typography
           color={"white"}
           fontSize={
-            windowWidth < 520 ? "5vw" : windowWidth < 786 ? "3.5vh" : "5.5vh"
+            windowWidth < 520
+              ? "5vw"
+              : windowWidth < 786 || windowHeight > 860
+              ? "3.5vh"
+              : "5.5vh"
           }
           fontFamily={"Comme, sans-serif"}
           fontWeight={800}
@@ -143,7 +147,13 @@ const UserDashboardSection = () => {
         <Typography
           color={"white"}
           fontSize={
-            windowWidth < 520 ? "5.5vw" : windowWidth < 786 ? "3.5vh" : "5.5vh"
+            windowWidth < 575 && windowHeight > 860
+              ? "5.8vw"
+              : windowWidth < 520
+              ? "5.5vw"
+              : windowWidth < 786 || windowHeight > 860
+              ? "3.5vh"
+              : "5.5vh"
           }
           fontFamily={"Comme, sans-serif"}
           fontWeight={800}
@@ -152,7 +162,7 @@ const UserDashboardSection = () => {
         </Typography>
         <Typography
           color={"white"}
-          fontSize={windowWidth < 786 ? "3vh" : "4.5vh"}
+          fontSize={windowWidth < 786 || windowHeight > 860 ? "3vh" : "4.5vh"}
           fontFamily={"Comme, sans-serif"}
           borderBottom={"0.5px solid white"}
         >
@@ -160,7 +170,7 @@ const UserDashboardSection = () => {
         </Typography>
         <Typography
           color={"white"}
-          fontSize={windowWidth < 786 ? "3vh" : "4.5vh"}
+          fontSize={windowWidth < 786 || windowHeight > 860 ? "3vh" : "4.5vh"}
           fontFamily={"Comme, sans-serif"}
           borderBottom={"0.5px solid white"}
         >
@@ -168,7 +178,7 @@ const UserDashboardSection = () => {
         </Typography>
         <Typography
           color={"white"}
-          fontSize={windowWidth < 786 ? "3vh" : "4.5vh"}
+          fontSize={windowWidth < 786 || windowHeight > 860 ? "3vh" : "4.5vh"}
           fontFamily={"Comme, sans-serif"}
           borderBottom={"0.5px solid white"}
         >
