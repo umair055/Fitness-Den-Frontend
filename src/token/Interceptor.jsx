@@ -1,6 +1,5 @@
 import axios from "axios";
-axios.defaults.baseURL =
-  "https://tasty-slug-handkerchief.cyclic.app/fitness-den/";
+axios.defaults.baseURL = "https://fitnessden.herokuapp.com/fitness-den/";
 let refresh = false;
 
 axios.interceptors.response.use(
@@ -14,7 +13,6 @@ axios.interceptors.response.use(
         {},
         { withCredentials: true }
       );
-      console.log(data);
       if (data.success) {
         axios.defaults.headers.common["Authorization"] = `Bearer ${data.data}`;
         return axios(error.config);

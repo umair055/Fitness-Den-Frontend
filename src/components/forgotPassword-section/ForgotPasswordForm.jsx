@@ -32,8 +32,7 @@ const ForgotPasswordForm = () => {
         toast.error(forgotPasswordRequest.response.data.message);
       }
     } catch (error) {
-      toast.error(error.message);
-      console.log(error);
+      console.log(error.message);
     }
   };
 
