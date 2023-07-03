@@ -6,6 +6,11 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import {
+  EmailValidation,
+  NameValidation,
+  PasswordValidation,
+} from "../../Validations/SignupFormValidations";
 
 const SignUpForm = () => {
   const [formData, setFormData] = useState({
@@ -26,24 +31,33 @@ const SignUpForm = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    try {
-      const registerRequest = await axios.post("signup", {
-        name,
-        email,
-        password,
-      });
-      if (registerRequest.data && registerRequest.data.success) {
-        toast.success(registerRequest.data.message);
+    toast.error(NameValidation(name));
+    toast.error(EmailValidation(email));
+    toast.error(PasswordValidation(password));
+    if (
+      !NameValidation(name) &&
+      !EmailValidation(email) &&
+      !PasswordValidation(password)
+    ) {
+      try {
+        const registerRequest = await axios.post("signup", {
+          name,
+          email,
+          password,
+        });
+        if (registerRequest.data && registerRequest.data.success) {
+          toast.success(registerRequest.data.message);
+        }
+        if (
+          registerRequest.response &&
+          registerRequest.response.data &&
+          registerRequest.response.data.message
+        ) {
+          toast.error(registerRequest.response.data.message);
+        }
+      } catch (error) {
+        console.log(error);
       }
-      if (
-        registerRequest.response &&
-        registerRequest.response.data &&
-        registerRequest.response.data.message
-      ) {
-        toast.error(registerRequest.response.data.message);
-      }
-    } catch (error) {
-      console.log(error);
     }
   };
 
