@@ -1,5 +1,5 @@
 import axios from "axios";
-axios.defaults.baseURL = "https://fitnessden.herokuapp.com/fitness-den/";
+axios.defaults.baseURL = "https://tasty-slug-handkerchief.cyclic.app/";
 let refresh = false;
 
 axios.interceptors.response.use(
