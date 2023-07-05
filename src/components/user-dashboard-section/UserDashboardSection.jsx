@@ -117,7 +117,12 @@ const UserDashboardSection = () => {
       <Box
         sx={{
           minHeight: "60vh",
-          minWidth: "90vw",
+          minWidth:
+            windowWidth < 800
+              ? "90vw"
+              : windowWidth < 1000 && windowWidth > 800
+              ? "70vw"
+              : "50vw",
           backgroundColor: "rgba(255, 255, 255, 0.1)",
           backdropFilter: "blur(10px)",
           boxShadow: "10px 10px 10px rgba(0, 0, 0, 0.1)",
